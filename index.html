@@ -79,19 +79,26 @@
       "Signs point to yes.",
       "Better not tell you now."
     ];
+    
+   
+    let playAgain = true;
 
-    function askQuestion() {
-      let question = prompt("What is your yes or no question?");
+   
+    while (playAgain) {
+      let question = prompt("Ask the Magic 8 Ball a yes or no question:");
 
-      if (question === null || question.trim() === "") {
-        return;
-      }
+      
+      if (question === null) break;
 
       let randomIndex = Math.floor(Math.random() * answers.length);
-      let response = answers[randomIndex];
+      alert("🎱 " + answers[randomIndex]);
 
-      document.getElementById("answerDisplay").textContent = response;
+      
+      playAgain = confirm("Would you like to ask another question?");
     }
+
+    alert("Thanks for playing!");
+
   </script>
 
 </body>
