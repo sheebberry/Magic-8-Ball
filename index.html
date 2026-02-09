@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Magic 8 Ball</title>
+
+  <style>
+    body {
+      background: radial-gradient(#222, #000, #222);
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #111;
+      padding: 30px;
+      width: 350px;
+      text-align: center;
+      border-radius: 15px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #5b5bff;
+      color: white;
+    }
+
+    button:hover {
+      background: #3f3fff;
+    }
+
+    .answer {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      min-height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>🎱Magic 8 Ball</h1>
+    <p>Ask a yes or no question</p>
+
+    <button onclick="askQuestion()">Shake the Ball</button>
+
+    <div class="answer" id="answerDisplay"></div>
+  </div>
+
+  <script>
+    const answers = [
+      "Yes, definitely.",
+      "No, absolutely not.",
+      "Ask again later.",
+      "It is uncertain.",
+      "Without a doubt.",
+      "Very unlikely.",
+      "Signs point to yes.",
+      "Better not tell you now."
+    ];
+
+    function askQuestion() {
+      let question = prompt("What is your yes or no question?");
+
+      if (question === null || question.trim() === "") {
+        return;
+      }
+
+      let randomIndex = Math.floor(Math.random() * answers.length);
+      let response = answers[randomIndex];
+
+      document.getElementById("answerDisplay").textContent = response;
+    }
+  </script>
+
+</body>
+</html>
